@@ -13,7 +13,7 @@ export default function GoalCardContainer() {
   const [progress, setProgress] = useState("");
   const [deadline, setDeadline] = useState("");
 
-  const backendURL = "http://localhost:5000/goal";
+  const backendURL = "https://mern-project-o12y.onrender.com/goal";
 
   useEffect(() => {
     if (groupName) {
@@ -23,7 +23,7 @@ export default function GoalCardContainer() {
 
  const fetchGoals = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/allgoal", {
+    const res = await axios.get("https://mern-project-o12y.onrender.com/allgoal", {
       params: {
         group: groupName,
         user: currentUser
