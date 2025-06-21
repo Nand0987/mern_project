@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const { currentUser } = useAuth(); // Now accessible in Dashboard
+
 
 
 
@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [newGroupName, setNewGroupName] = useState("");
   const [newGroupDesc, setNewGroupDesc] = useState("");
 
-  // const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
+  const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
   const backendURL = "https://mern-project-o12y.onrender.com/group";
 
   const fetchGroups = async () => {
