@@ -1,4 +1,4 @@
-import "../components/GoalCard.css";
+import "../components/GoalCard1.css";
 
 export default function GoalCard({ title, progress, deadline, createdBy, currentUser }) {
   return (
