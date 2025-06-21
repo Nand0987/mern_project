@@ -16,7 +16,7 @@ export default function Login() {
 
     if (email && password) {
      try {
-      const response = await axios.post('http://localhost:5000/', {
+      const response = await axios.post('https://mern-project-o12y.onrender.com/', {
         email,
         password
       });
