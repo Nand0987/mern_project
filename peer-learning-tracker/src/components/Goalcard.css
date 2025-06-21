@@ -1,0 +1,80 @@
+.goal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.goal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.goal-form input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.goal-form button {
+  padding: 10px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.goal-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.goal-card {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  background: white;
+  border-left: 6px solid #2563eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 10px;
+  background-color: #10b981;
+  transition: width 0.5s ease;
+}
+
+.progress-fill.completed {
+  background-color: #7c3aed;
+}
+
+.completed-text {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #7c3aed;
+}
