@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import GoalCard from "./GoalCard";
-import "../components/GoalCard.css";
+import "./goalcardstyle.css";
 import axios from "axios";
 
 export default function GoalCardContainer() {
