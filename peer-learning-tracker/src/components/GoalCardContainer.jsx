@@ -21,42 +21,55 @@ export default function GoalCardContainer() {
     }
   }, [groupName]);
 
- const fetchGoals = async () => {
+const fetchGoals = async () => {
   try {
-    const res = await axios.get("https://mern-project-o12y.onrender.com/allgoal", {
+    const res = await axios.get("http://localhost:5000/allgoal", {
       params: {
         group: groupName,
         user: currentUser
+      },
+      headers: {
+        Authorization: `Bearer ${token}` // attach token in header
       }
     });
+
     setGoals(res.data);
   } catch (error) {
     console.error("Error fetching goals:", error);
   }
 };
 
-  const handleAddGoal = async (e) => {
-    e.preventDefault();
-    if (!title || !progress || !deadline) return;
 
-    const newGoal = {
-      title,
-      progress: Number(progress),
-      deadline,
-      group: groupName,
-      createdBy: currentUser,
-    };
+const handleAddGoal = async (e) => {
+  e.preventDefault();
+  if (!title || !progress || !deadline) return;
 
-    try {
-      await axios.post(backendURL, newGoal);
-      setTitle("");
-      setProgress("");
-      setDeadline("");
-      fetchGoals();
-    } catch (error) {
-      console.error("Error adding goal:", error);
-    }
+  const newGoal = {
+    title,
+    progress: Number(progress),
+    deadline,
+    group: groupName,
+    createdBy: currentUser,
   };
+
+  try {
+    const token = localStorage.getItem("token"); // get token from localStorage
+
+    await axios.post(backendURL, newGoal, {
+      headers: {
+        Authorization: `Bearer ${token}`, // attach token in header
+      },
+    });
+
+    setTitle("");
+    setProgress("");
+    setDeadline("");
+    fetchGoals();
+  } catch (error) {
+    console.error("Error adding goal:", error);
+  }
+};
+
 
   return (
     <div className="goal-container">

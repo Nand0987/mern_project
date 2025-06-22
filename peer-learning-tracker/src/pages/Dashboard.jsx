@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+const { currentUser } = useAuth(); // Now accessible in Dashboard
 
 
 
@@ -13,12 +13,12 @@ export default function Dashboard() {
   const [newGroupName, setNewGroupName] = useState("");
   const [newGroupDesc, setNewGroupDesc] = useState("");
 
-  const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
-  const backendURL = "https://mern-project-o12y.onrender.com/group";
+  // const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
+  const backendURL = "http://localhost:5000/group";
 
   const fetchGroups = async () => {
     try {
-      const res = await axios.get("https://mern-project-o12y.onrender.com/allgroup");
+      const res = await axios.get("http://localhost:5000/allgroup");
       setGroups(res.data);
     } catch (error) {
       console.error("Error fetching groups:", error);
@@ -29,24 +29,29 @@ export default function Dashboard() {
     fetchGroups();
   }, []);
 
-  const handleAddGroup = async () => {
-    if (newGroupName.trim() === "" || newGroupDesc.trim() === "") return;
+const handleAddGroup = async () => {
+  if (newGroupName.trim() === "" || newGroupDesc.trim() === "") return;
 
-    try {
-      await axios.post(backendURL, {
-        name: newGroupName,
-        description: newGroupDesc,
-      });
+  try {
+    const token = localStorage.getItem("token"); // Get token from localStorage
 
-      setNewGroupName("");
-      setNewGroupDesc("");
-      fetchGroups();
-    } catch (error) {
-      console.error("Failed to add group:", error);
-    }
-  };
+    await axios.post(backendURL, {
+      name: newGroupName,
+      description: newGroupDesc,
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}` // Send token in header
+      }
+    });
 
-  const handleJoin = (groupName) => {
+    setNewGroupName("");
+    setNewGroupDesc("");
+    fetchGroups();
+  } catch (error) {
+    console.error("Failed to add group:", error);
+  }
+};
+const handleJoin = (groupName) => {
     navigate("/group", {
       state: { currentUser, groupName }, // ✅ Passing state to /group
     });

@@ -7,6 +7,7 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rmessage,setrMessage]=useState("")
   const navigate=useNavigate();
 
   const handleRegister = async(e) => {
@@ -22,6 +23,7 @@ export default function Register() {
       console.log('Login Success:', response.data);
       navigate('/')
     } catch (error) {
+      setrMessage("Registration is not successful")
       console.error('Login Failed:', error.response?.data || error.message);
     }
 
@@ -35,8 +37,9 @@ export default function Register() {
   return (
     <div className="login-container">
       <div className="login-box">
+        <h2 className="login-title" style={{color:"red"}}>{rmessage}</h2>
         <h2 className="login-title">Please Register</h2>
-
+        
         <input
           type="text"
           placeholder="Full Name"

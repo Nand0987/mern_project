@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Goal = require("./models/Goal");
+const verifyToken=require('./verifyToken')
+
 
 // Add new goal (POST /api/goals)
-router.post("/goal", async (req, res) => {
+router.post("/goal",verifyToken ,async (req, res) => {
   try {
     const { title, progress, deadline, group, createdBy } = req.body;
 
@@ -18,7 +20,7 @@ router.post("/goal", async (req, res) => {
 
 // Get all goals by group (GET /api/goals?group=React)
 // Express route
-router.get('/allgoal', async (req, res) => {
+router.get('/allgoal',verifyToken, async (req, res) => {
   const { group, user } = req.query;
 
   if (!group || !user) {

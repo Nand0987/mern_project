@@ -8,6 +8,7 @@ export default function Login() {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message,setMessage]=useState("")
   const navigate = useNavigate();
  
 
@@ -26,6 +27,7 @@ export default function Login() {
       navigate("/dashboard");
 
     } catch (error) {
+      setMessage("Invalid Input")
       console.error('Login Failed:', error.response?.data || error.message);
     }
     } else {
@@ -36,7 +38,9 @@ export default function Login() {
 
   return (
     <div className="login-container">
+     
       <div className="login-box">
+         <h2 className="login-title" style={{color:"red"}}>Invalid Input</h2>
         <h2 className="login-title">Please login</h2>
 
         <input
