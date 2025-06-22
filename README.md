@@ -24,7 +24,7 @@ Built using:
 
 🌐 [Click here to view the live site](https://mern-project-2-ldtz.onrender.com)
 
-🛠️ Backend API: https://your-backend-url-here.com
+🛠️ Backend API:https://mern-project-o12y.onrender.com/
 
 ---
 
