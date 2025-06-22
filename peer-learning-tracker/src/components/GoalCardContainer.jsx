@@ -23,6 +23,7 @@ export default function GoalCardContainer() {
 
 const fetchGoals = async () => {
   try {
+    const token = localStorage.getItem("token"); 
     const res = await axios.get("https://mern-project-o12y.onrender.com/allgoal", {
       params: {
         group: groupName,
