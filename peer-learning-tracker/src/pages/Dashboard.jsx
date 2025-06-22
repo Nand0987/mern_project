@@ -16,14 +16,22 @@ export default function Dashboard() {
   // const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
   const backendURL = "https://mern-project-o12y.onrender.com/group";
 
-  const fetchGroups = async () => {
-    try {
-      const res = await axios.get("https://mern-project-o12y.onrender.com/allgroup");
-      setGroups(res.data);
-    } catch (error) {
-      console.error("Error fetching groups:", error);
-    }
-  };
+   const fetchGroups = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const res = await axios.get("https://mern-project-o12y.onrender.com/allgroup", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    setGroups(res.data);
+  } catch (error) {
+    console.error("Error fetching groups:", error);
+  }
+};
+
 
   useEffect(() => {
     fetchGroups();
