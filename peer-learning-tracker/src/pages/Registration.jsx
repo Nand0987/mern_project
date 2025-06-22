@@ -14,7 +14,7 @@ export default function Register() {
    
     if (name && email && password) {
        try {
-      const response = await axios.post('https://mern-project-o12y.onrender.com/register', {
+      const response = await axios.post('https://mern-project-o12y.onrender.com/register', { 
         name,
         email,
         password
