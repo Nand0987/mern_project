@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [newGroupName, setNewGroupName] = useState("");
   const [newGroupDesc, setNewGroupDesc] = useState("");
 
-  // const currentUser = "nandan@example.com"; // 🔁 You can later fetch from login or context
+  const currentUser = "nandan@example.com"; 
   const backendURL = "https://mern-project-o12y.onrender.com/group";
 
    const fetchGroups = async () => {
