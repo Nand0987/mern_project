@@ -23,7 +23,7 @@ export default function GoalCardContainer() {
 
 const fetchGoals = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/allgoal", {
+    const res = await axios.get("https://mern-project-o12y.onrender.com/allgoal", {
       params: {
         group: groupName,
         user: currentUser
