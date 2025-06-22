@@ -37,6 +37,6 @@ Built using:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/peer-learning-tracker-lite.git
-cd peer-learning-tracker-lite
+git clone https://github.com/Nand0987/mern_project
+cd peer-learning-tracker-tracker
 
