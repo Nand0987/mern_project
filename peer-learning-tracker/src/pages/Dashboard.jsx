@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const { currentUser } = useAuth(); // Now accessible in Dashboard
+
 
 
 
