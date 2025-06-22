@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function GoalCardContainer() {
   const location = useLocation();
-  const { currentUser, groupName } = location.state || {}; // ✅ Safely read
+  const { currentUser, groupName } = location.state || {}; // 
 
   const [goals, setGoals] = useState([]);
   const [title, setTitle] = useState("");
